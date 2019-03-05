@@ -5,10 +5,10 @@ const routes = require('./routes/routes.js');
 const mongoose = require('mongoose');
 const PORT = 3001;
 const app = express();
-const config = require('./config');
 const passport = require('passport');
+require('dotenv').config();
 
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
+mongoose.connect(process.env.DB, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
     err => { console.log('Can not connect to the database'+ err)}
 );

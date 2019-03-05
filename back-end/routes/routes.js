@@ -7,15 +7,15 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
-const config = require('../config');
 const User = require('../models/User');
 const Booking = require('../models/Booking');
+require('dotenv').config();
 
 
 // API keys for Dark Sky API and Google Geolocation API
-var geocodingAPI_KEY = config.GoogleGeolocationAPI;
+var geocodingAPI_KEY = process.env.GOOGLE_GEOLOCATION_API_KEY;
 var geocodingAPI_URL = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-var weatherAPI_KEY = config.DarkSkyAPI;
+var weatherAPI_KEY = process.env.DARK_SKY_API_KEY;
 var weatherAPI_URL = 'https://api.darksky.net/forecast/'
 
 // path for the app client to get weather info
